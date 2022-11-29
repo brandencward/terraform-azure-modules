@@ -28,10 +28,14 @@ jobs:
           uses: actions/checkout@v3
           with: 
             repository: brandencward/terraform-azure-modules
+            
+        - name: Print
+          run: |
+            pwd
+            ls
     
         - name: Terraform Plan
-          run: |
-            cd manifests/storage
+          run: |           
             terraform init
             terraform plan -input=false -var-file=../../env/${{ matrix.env  }}.tfvars -out tfplan
         
