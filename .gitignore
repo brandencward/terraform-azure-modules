@@ -8,7 +8,7 @@
 *.tfplan
 
 # .tfvars files that may contain sensitive data
-*.tfvars
+# *.tfvars
 
 # Crash log files
 crash.log
