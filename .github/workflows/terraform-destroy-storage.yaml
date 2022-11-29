@@ -1,4 +1,4 @@
-name: 'Terraform Storage'
+name: 'Terraform Destroy Storage'
 
 on:
   workflow_dispatch:
@@ -15,7 +15,7 @@ jobs:
     strategy: 
       matrix: 
         env: [dev]
-    name: 'Terraform Apply'
+    name: 'Terraform Destroy'
     runs-on: ubuntu-latest
     
     defaults:
@@ -34,11 +34,7 @@ jobs:
             pwd
             ls
     
-        - name: Terraform Plan
+        - name: Terraform Destroy
           run: |           
-            terraform init
-            terraform plan -input=false -var-file=../../env/${{ matrix.env  }}.tfvars -out tfplan
-        
-        - name: Terraform Apply
-          run: |
-            terraform apply -input=false "tfplan" 
+            terraform destroy -auto-approve -var-file=../../env/${{ matrix.env  }}.tfvars
+            
