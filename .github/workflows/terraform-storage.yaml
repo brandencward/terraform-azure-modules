@@ -31,8 +31,9 @@ jobs:
     
         - name: Terraform Plan
           run: |
-            terraform init -backend-config=key=${{ matrix.env  }}.tfvars
-            terraform plan -input=false -var-file=env/${{ matrix.env  }}.tfvars -out tfplan
+            cd manifests/storage
+            terraform init
+            terraform plan -input=false -var-file=../../env/${{ matrix.env  }}.tfvars -out tfplan
         
         - name: Terraform Apply
           run: |
