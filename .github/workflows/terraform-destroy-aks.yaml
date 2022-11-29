@@ -1,4 +1,4 @@
-name: 'Terraform Destroy Storage'
+name: 'Terraform Destroy AKS'
 
 on:
   workflow_dispatch:
@@ -21,7 +21,7 @@ jobs:
     defaults:
           run:
             shell: bash
-            working-directory: manifests/storage/
+            working-directory: manifests/aks/
     
     steps:
         - name: Checkout
