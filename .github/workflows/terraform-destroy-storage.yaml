@@ -35,6 +35,7 @@ jobs:
             ls
     
         - name: Terraform Destroy
-          run: |           
+          run: |
+            terraform init
             terraform destroy -auto-approve -var-file=../../env/${{ matrix.env  }}.tfvars
             
