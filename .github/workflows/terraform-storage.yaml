@@ -1,3 +1,5 @@
+# Creates a Storage Account to utilize as a Terraform Back End. This must be destroyed manually in Azure when finished.
+
 name: 'Terraform Storage'
 
 on:
