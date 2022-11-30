@@ -1,4 +1,6 @@
-name: 'Terraform Destroy Storage'
+# Creates a Storage Account to utilize as a Terraform Back End. This must be destroyed manually in Azure when finished.
+
+name: 'Terraform AKS'
 
 on:
   workflow_dispatch:
@@ -15,13 +17,13 @@ jobs:
     strategy: 
       matrix: 
         env: [dev]
-    name: 'Terraform Destroy'
+    name: 'Terraform Apply'
     runs-on: ubuntu-latest
     
     defaults:
           run:
             shell: bash
-            working-directory: manifests/storage/
+            working-directory: manifests/aks/
     
     steps:
         - name: Checkout
@@ -29,12 +31,11 @@ jobs:
           with: 
             repository: brandencward/terraform-azure-modules
             
-        - name: Print
-          run: |
-            pwd
-            ls
-    
-        - name: Terraform Destroy
+        - name: Terraform Plan
           run: |           
-            terraform destroy -auto-approve -var-file=../../env/${{ matrix.env  }}.tfvars
-            
+            terraform init
+            terraform plan -input=false -var-file=../../env/${{ matrix.env  }}.tfvars -out tfplan
+        
+        - name: Terraform Apply
+          run: |
+            terraform apply -input=false "tfplan" 

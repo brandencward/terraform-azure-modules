@@ -26,6 +26,6 @@ variable "asa_tags" {
   description = "Tags for the storage account"
   type        = map(string)
   default = {
-    environment = "development"
+    environment = "dev"
   }
 }
