@@ -1,6 +1,6 @@
 # Creates a Storage Account to utilize as a Terraform Back End. This must be destroyed manually in Azure when finished.
 
-name: 'Terraform Storage'
+name: 'Terraform AKS'
 
 on:
   workflow_dispatch:
@@ -31,11 +31,6 @@ jobs:
           with: 
             repository: brandencward/terraform-azure-modules
             
-        - name: Print
-          run: |
-            pwd
-            ls
-    
         - name: Terraform Plan
           run: |           
             terraform init
