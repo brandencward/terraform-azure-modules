@@ -3,6 +3,6 @@ terraform {
     resource_group_name  = "base-resources"
     storage_account_name = "storageaccountbward"
     container_name       = "dev-tfstate"
-    key                  = "akc.tfstate"
+    key                  = "keyvault.fstate"
   }
 }

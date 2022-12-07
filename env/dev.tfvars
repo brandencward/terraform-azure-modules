@@ -13,3 +13,8 @@ akc_dns_prefix  = "sandboxaks1"
 akc_sys_vm_size = "Standard_E2bs_v5"
 akc_cnp_vm_size = "Standard_E2bs_v5"
 
+# Key Vault
+
+arg-kv_name     = "sandbox-kv"
+arg-kv_location = "Central US"
+akv_name        = "sandbox-kv-bward1911"
