@@ -1,0 +1,41 @@
+name: 'Terraform Destroy keyvault'
+
+on:
+  workflow_dispatch:
+  workflow_call:
+  
+env:
+  ARM_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }} 
+  ARM_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }} 
+  ARM_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION }}
+  ARM_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}   
+
+jobs:
+  plan:
+    strategy: 
+      matrix: 
+        env: [dev]
+    name: 'Terraform Destroy'
+    runs-on: ubuntu-latest
+    
+    defaults:
+          run:
+            shell: bash
+            working-directory: manifests/keyvault/
+    
+    steps:
+        - name: Checkout
+          uses: actions/checkout@v3
+          with: 
+            repository: brandencward/terraform-azure-modules
+            
+        - name: Print
+          run: |
+            pwd
+            ls
+    
+        - name: Terraform Destroy
+          run: |
+            terraform init
+            terraform destroy -auto-approve -var-file=../../env/${{ matrix.env  }}.tfvars
+            

@@ -40,7 +40,7 @@ variable "akc_tags" {
   description = "Tags for the Kubernetes Cluster"
   type        = map(string)
   default = {
-    environment = "development"
+    environment = "dev"
   }
 }
 
