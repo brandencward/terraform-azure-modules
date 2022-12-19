@@ -2,7 +2,7 @@
 
 rg_sa_name     = "base-resources"
 rg_sa_location = "Central US"
-asa_name       = "storageaccountbward"
+asa_name       = "storageaccount"
 
 # AKS
 
@@ -17,4 +17,4 @@ akc_cnp_vm_size = "Standard_E2bs_v5"
 
 arg-kv_name     = "sandbox-kv"
 arg-kv_location = "Central US"
-akv_name        = "sandbox-kv-bward1911"
+akv_name        = "sandbox-kv-mykeyvault"

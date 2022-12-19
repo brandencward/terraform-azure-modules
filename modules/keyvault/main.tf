@@ -35,3 +35,17 @@ resource "azurerm_key_vault" "akv" {
     ]
   }
 }
+
+# Secret for Testing Purpose Only
+resource "azurerm_key_vault_secret" "kv-secret1" {
+  name         = "kv-secret1"
+  value        = "Floccinaucinihilipilification"
+  key_vault_id = azurerm_key_vault.akv.id
+}
+
+# Secret for Testing Purpose Only
+resource "azurerm_key_vault_secret" "kv-secret2" {
+  name         = "kv-secret2"
+  value        = "Hippopotomonstrosesquippedaliophobia"
+  key_vault_id = azurerm_key_vault.akv.id
+}
