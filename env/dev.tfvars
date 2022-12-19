@@ -2,7 +2,7 @@
 
 rg_sa_name     = "base-resources"
 rg_sa_location = "Central US"
-asa_name       = "storageaccount"
+asa_name       = "storageaccountbward"
 
 # AKS
 
