@@ -23,15 +23,15 @@ resource "azurerm_key_vault" "akv" {
     object_id = data.azurerm_client_config.current.object_id
 
     key_permissions = [
-      "Get",
+      "Get", "Create","List",
     ]
 
     secret_permissions = [
-      "Get",
+      "Get", "Set","List",
     ]
 
     storage_permissions = [
-      "Get",
+      "Get", "Set","List",
     ]
   }
 }
